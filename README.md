@@ -10,8 +10,15 @@ Prebuilt ipk can found in [releases](https://github.com/BH4EHN/openwrt-cloudflar
 
 - clone this repo to OpenWRT source or sdk `packages` subdirectory
 - (optional) uncomment `upx` action in `Makefile` file `Build/Compile` section if `upx` is present in OpenWRT build environment, this can reduce almost 80% of go executable file size
+- building toolchain
+```bash
+# ./scripts/feeds update -a
+# ./scripts/feeds install -a
+make tools/install
+make toolchain/install
+```
 - run `make menuconfig` or append `CONFIG_PACKAGE_cloudflared=y` to `.config` file
-- run `make ./package/bh4ehn/cloudflared/compile` and wait for compile
+- run `make ./package/openwrt-cloudflared/compile` and wait for compile
 - check `./bin/packages/<arch>/cloudflared_<version>_<arch>.ipk`
 
 ## How to use
